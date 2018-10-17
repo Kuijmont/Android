@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources><string name="app_name">Push stable</string>
+    <string name="pulsameAdmiracion">Push me!</string>
+    <plurals name="numPulsaciones">
+        <item quantity="one">Push once</item>
+        <item quantity="other">Push %d times</item>
+    </plurals></resources>

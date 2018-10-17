@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ListView Optimizado</string>
+
+
+
+    <string name="haz_clic">Por favor, haz clic en una opción o desplaza el listado para ver todas las opciones.</string>
+    <string name="action_settings">Settings</string>
+</resources>

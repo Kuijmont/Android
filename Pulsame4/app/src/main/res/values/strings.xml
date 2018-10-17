@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Pulsame Estable</string>
+    <string name="pulsameAdmiracion">Pulsame!</string>
+    <plurals name="numPulsaciones">
+        <item quantity="one">Pulsado %d vez</item>
+        <item quantity="other">Pulsado %d veces</item>
+    </plurals>
+</resources>
