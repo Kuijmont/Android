@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/background_dark"
+    tools:context=".MainActivityCompra">
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="266dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="13dp"
+        android:text="Lista de la compra"
+        android:textColor="@android:color/background_light"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_marginLeft="13dp" />
+
+    <TextView
+        android:id="@+id/textViewCabecera"
+        android:layout_width="357dp"
+        android:layout_height="98dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="54dp"
+        android:text="Pulsa un rato un artículo del listado para modificarlo o eliminarlo.\nTambién puedes usar el menú para añadir un nuevo artículo"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp" />
+
+    <ListView
+        android:id="@+id/ListaOpciones"
+        android:layout_width="356dp"
+        android:layout_height="396dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/textViewCabecera"
+        android:layout_marginBottom="11dp" />
+</RelativeLayout>
