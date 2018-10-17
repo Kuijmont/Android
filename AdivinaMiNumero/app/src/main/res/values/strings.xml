@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Adivina Mi Numero</string>
+    <string name="intento">¡Intentalo!</string>
+    <string name="cabeceraInicial">He pensado un número entre 1 y 100.¡Adivina cuál es!</string>
+    <string name="intentos">Llevas</string>
+    <string name="prob">PROBAR</string>
+    <string name="reset">PROBAR</string>
+    <string name="cabecera">¿%1$d? ¡Uy! El número que he pensado es mayor.</string>
+    <string name="cabecera2">¿%1$d? ¡Uy! El número que he pensado es menor.</string>
+    <string name="acierto">¡¡Has acertado!!¡¡Y sólo en %1$d intentos.</string>
+    <string name="toast1">Por favor, introduce un número entero.</string>
+    <string name="toast2">Por favor, introduce un número entre 1 y 100.</string>
+</resources>

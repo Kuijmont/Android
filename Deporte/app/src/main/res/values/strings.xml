@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Deporte</string>
+    <string name="cabecera">Seleccionar los deportes que te gustan y pulsa \n"'"Aceptar"'"</string>
+    <string name="boton">Aceptar</string>
+</resources>

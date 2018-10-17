@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Guess My Number</string>
+    <string name="intento">Try it!</string>
+    <string name="cabeceraInicial">I\'ve thought of a number between 1 and 100. Guess what it is!</string>
+    <string name="intentos">You carry</string>
+    <string name="prob">TRY</string>
+    <string name="reset">RESTART</string>
+    <string name="cabecera">%1$d? Oops! The number that I have thought is greater.</string>
+    <string name="cabecera2">%1$d? Oops! The number that I have thought is lower.</string>
+    <string name="acierto">You guessed right !! And only in %1$d attempts.</string>
+    <string name="toast1">Please enter a whole number.</string>
+    <string name="toast2">Please enter a number between 1 and 100.</string>
+</resources>
