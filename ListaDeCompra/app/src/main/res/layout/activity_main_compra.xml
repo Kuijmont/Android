@@ -7,36 +7,70 @@
     android:background="@android:color/background_dark"
     tools:context=".MainActivityCompra">
 
-    <TextView
-        android:id="@+id/textViewTitle"
-        android:layout_width="266dp"
-        android:layout_height="40dp"
-        android:layout_alignParentStart="true"
+    <EditText
+        android:id="@+id/textoSuperior"
+        style="@style/Widget.AppCompat.EditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/textViewCabecera"
+        android:layout_alignRight="@+id/textViewCabecera"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginStart="13dp"
-        android:text="Lista de la compra"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="-5dp"
+        android:layout_marginRight="-5dp"
+        android:layout_x="0dp"
+        android:layout_y="3dp"
+        android:backgroundTint="@android:color/background_light"
+        android:editable="false"
+        android:ems="10"
+        android:enabled="false"
+        android:inputType="textPersonName"
+        android:text="@string/app_name"
         android:textColor="@android:color/background_light"
         android:textSize="30sp"
         android:textStyle="bold"
-        android:layout_marginLeft="13dp" />
+        tools:ignore="RtlCompat" />
 
-    <TextView
+    <EditText
         android:id="@+id/textViewCabecera"
-        android:layout_width="357dp"
-        android:layout_height="98dp"
+        android:layout_width="351dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="54dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginLeft="23dp"
+        android:layout_marginTop="57dp"
+        android:backgroundTint="@android:color/background_light"
+        android:editable="false"
         android:text="Pulsa un rato un artículo del listado para modificarlo o eliminarlo.\nTambién puedes usar el menú para añadir un nuevo artículo"
         android:textColor="@android:color/background_light"
         android:textSize="18sp" />
 
-    <ListView
-        android:id="@+id/ListaOpciones"
-        android:layout_width="356dp"
-        android:layout_height="396dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/textViewCabecera"
-        android:layout_marginBottom="11dp" />
+    <LinearLayout
+        android:layout_width="346dp"
+        android:layout_height="399dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="23dp"
+        android:layout_marginLeft="23dp"
+        android:layout_marginTop="168dp"
+        android:layout_x="1dp"
+        android:layout_y="213dp"
+        android:backgroundTint="@android:color/background_light"
+        android:orientation="horizontal">
+
+
+        <ListView
+            android:id="@+id/ListaOpciones"
+            android:layout_width="373dp"
+            android:layout_height="490dp"
+            android:layout_alignStart="@id/textViewCabecera"
+            android:layout_alignLeft="@id/textViewCabecera"
+            android:divider="@android:color/background_light"
+            android:dividerHeight="4px" />
+        android:textColor="@android:color/background_light"
+        tools:ignore="RtlCompat" />
+    </LinearLayout>
 </RelativeLayout>

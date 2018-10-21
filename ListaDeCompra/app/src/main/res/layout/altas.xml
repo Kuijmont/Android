@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="331dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"
+        android:layout_x="25dp"
+        android:layout_y="1dp"
+        android:text="@string/alta"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="329dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginRight="28dp"
+        android:layout_x="26dp"
+        android:layout_y="38dp"
+        android:text="@string/nuevo"
+        android:textSize="18sp"
+        tools:ignore="RtlCompat" />
+
+    <EditText
+        android:id="@+id/introducirTexto"
+        android:layout_width="338dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/text1"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="113dp"
+        android:layout_x="26dp"
+        android:layout_y="117dp"
+        android:layout_alignLeft="@+id/text1"
+        tools:ignore="RtlCompat" />
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="131dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/text1"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="79dp"
+        android:layout_x="26dp"
+        android:layout_y="82dp"
+        android:text="@string/name"
+        android:textSize="24sp"
+        android:layout_alignLeft="@+id/text1"
+        tools:ignore="RtlCompat" />
+
+</RelativeLayout>

@@ -1,4 +1,9 @@
 <resources>
-    <string name="app_name">ListaDeCompra</string>
+    <string name="app_name">Lista de Compra</string>
     <string name="nuevo_art_culo">Nuevo Artículo</string>
+    <string name="edit">Editar artículo</string>
+    <string name="delete">Borrar artículo</string>
+    <string name="alta">Alta Artículo</string>
+    <string name="nuevo">Introduce un nuevo artículo:</string>
+    <string name="name">Nombre</string>
 </resources>
