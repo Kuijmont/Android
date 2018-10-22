@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Practica6_Intents_explicito</string>
+    <string name="cabecera">Actividad principal. Presiona algún botón para iniciar la subactividad.
+        Primero debes dar de alta un contacto.</string>
+    <string name="alta">Alta de contacto</string>
+    <string name="modif">Modificar contacto</string>
+    <string name="datos">Datos de contacto</string>
+    <string name="vacio">No has dado de alta ningún contacto</string>
+    <string name="name">Nombre:</string>
+    <string name="ape">Apellidos:</string>
+    <string name="cabecera2">Alta de contacto. Indica el nombre y los apellidos.</string>
+</resources>
