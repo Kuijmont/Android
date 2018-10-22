@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Dos Activities</string>
+    <string name="act_name">Segunda Actividad</string>
+    <string name="comoTeLlamas">¿Cómo te llamas?</string>
+    <string name="saludar">Saludar</string>
+    <string name="nombreInvalido">Nombre inválido</string>
+    <string name="antipatico">Antipático</string>
+    <string name="title_activity_secondary">Segunda ventana</string>
+    <string name="segundaVentana">Esta es la segunda ventana</string>
+    <string name="holaNombre">Hola, %1$s, desde la segunda ventana</string>
+    <string name="responder">Responder</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+</resources>
