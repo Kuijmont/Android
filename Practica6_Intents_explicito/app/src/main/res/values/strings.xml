@@ -9,4 +9,7 @@
     <string name="name">Nombre:</string>
     <string name="ape">Apellidos:</string>
     <string name="cabecera2">Alta de contacto. Indica el nombre y los apellidos.</string>
+    <string name="cabecera3">Modificar contacto. Cambia el nombre y los apellidos.</string>
+    <string name="aceptar">Aceptar (finaliza esta Subactividad)</string>
+    <string name="gestion">Gestión de contactos</string>
 </resources>

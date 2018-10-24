@@ -16,6 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".SegundaActivity"
+            android:label="@string/gestion"></activity>
     </application>
 
 </manifest>
