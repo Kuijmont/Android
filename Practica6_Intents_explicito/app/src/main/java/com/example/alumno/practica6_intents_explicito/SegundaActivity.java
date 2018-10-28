@@ -1,5 +1,6 @@
 package com.example.alumno.practica6_intents_explicito;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -20,7 +21,8 @@ public class SegundaActivity extends AppCompatActivity {
         String boton = getIntent().getStringExtra("boton");
 
         switch (boton){
-            case "Alta": //Pulsar boton de Altas
+            case "Alta": //Altas
+                //Pulsar boton de Aceptar
                 buttonAceptar.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View view) {
@@ -33,13 +35,52 @@ public class SegundaActivity extends AppCompatActivity {
                         Toast toast = Toast.makeText(getApplicationContext(), "Rellena todos los campos.", Toast.LENGTH_SHORT);
                         toast.show();
                     }else{ //Caso contrario, lo rellena correctamente, devolvemos los valores de los campos a la main activity
-
+                        String resNombre = nombre.getText().toString();
+                        String resApellidos = apellido.getText().toString();
+                        String boton="Alta";
+                        Intent respuesta = new Intent(); //Intent para la respuesta
+                        respuesta.putExtra("boton", boton);
+                        respuesta.putExtra("nombre", resNombre);
+                        respuesta.putExtra("apellidos", resApellidos);
+                        setResult(RESULT_OK, respuesta);
+                        finish();
                     }
             }
         });
                 break;
-            case "Modf": //Pulsar boton de Modificar
+            case "Modf": //Modificar
+                //Recogida de datos a modificar
+                EditText nombre = (EditText) findViewById(R.id.editTextNombre);
+                EditText apellido = (EditText) findViewById(R.id.editTextApell);
+                String nom = getIntent().getStringExtra("nombre");
+                String ape = getIntent().getStringExtra("apellidos");
+                //Rellena las cajas de texto con los datos anteriores.
+                nombre.setText(nom);
+                apellido.setText(ape);
+                //Pulsar boton de Aceptar
+                buttonAceptar.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View view) {
+                        EditText nombre = (EditText) findViewById(R.id.editTextNombre);
+                        EditText apellido = (EditText) findViewById(R.id.editTextApell);
+                        //Compruebo que no se deja en blanco las cajas de texto
+                        if(nombre.getText().toString().equals("") || apellido.getText().toString().equals("")){
+                            Toast toast1 = Toast.makeText(getApplicationContext(),"Rellena todos los campos.", Toast.LENGTH_SHORT);
+                            toast1.show();
+                        }else{//Caso contrario, lo rellena correctamente, devolvemos los valores de los campos a la main activity
+                            String resNombre = nombre.getText().toString();
+                            String resApellidos = apellido.getText().toString();
+                            String boton="Alta";
+                            Intent respuesta = new Intent(); //Intent para la respuesta
+                            respuesta.putExtra("boton", boton);
+                            respuesta.putExtra("nombre", resNombre);
+                            respuesta.putExtra("apellidos", resApellidos);
+                            setResult(RESULT_OK, respuesta);
+                            finish();
+                        }
 
+                    }
+                });
                 break;
         }
     }
