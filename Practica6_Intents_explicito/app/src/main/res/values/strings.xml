@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Practica6_Intents_explicito</string>
+    <string name="app_name">Práctica 6 - Intent explícito</string>
     <string name="cabecera">Actividad principal. Presiona algún botón para iniciar la subactividad.
         Primero debes dar de alta un contacto.</string>
     <string name="alta">Alta de contacto</string>
