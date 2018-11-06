@@ -32,9 +32,11 @@
         android:id="@+id/imageView"
         android:layout_width="186dp"
         android:layout_height="181dp"
-        android:layout_alignParentStart="true"
         android:layout_alignTop="@+id/buttonSelec"
-        android:layout_marginStart="22dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="-1dp"
         app:srcCompat="@drawable/male_profile" />
 
     <Spinner

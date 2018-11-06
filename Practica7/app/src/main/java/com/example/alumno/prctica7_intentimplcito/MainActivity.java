@@ -16,16 +16,24 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private int RESULT_LOAD_IMAGE=1;
-    private static final int PERMISO_DE_LECTURA= 1 ;
+    private static final int PERMISO_DE_LECTURA= 1;
+    private DialogoProgreso progreso;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        Button enviar = (Button) findViewById(R.id.buttonEnviar);
+        enviar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                download();
+            }
+        });
         int permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE);
         if (permissionCheck!= PackageManager.PERMISSION_GRANTED) {
 
@@ -81,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
                 if (ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED){
 
 
-                    startActivity(intentCall);
+                    //startActivity(intentCall);
 
                 } else {
                     Toast.makeText(MainActivity.this, "You declined the access", Toast.LENGTH_SHORT).show();
@@ -89,6 +97,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void download() {
+        progreso =new DialogoProgreso();
+        progreso.show(getSupportFragmentManager(),"tag");
+    }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
