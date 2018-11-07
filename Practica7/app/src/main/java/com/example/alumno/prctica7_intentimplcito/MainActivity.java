@@ -16,12 +16,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private int RESULT_LOAD_IMAGE=1;
-    private static final int PERMISO_DE_LECTURA= 1;
+    private final int PERMISO_DE_LECTURA= 100;
     private DialogoProgreso progreso;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,36 +33,21 @@ public class MainActivity extends AppCompatActivity {
                 download();
             }
         });
-        int permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE);
-        if (permissionCheck!= PackageManager.PERMISSION_GRANTED) {
 
-            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
-                    Manifest.permission.READ_EXTERNAL_STORAGE)) {
-
-            } else {
-
-                ActivityCompat.requestPermissions(this,
-                        new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
-                        PERMISO_DE_LECTURA);
-
-            }
-        }
         Button buttonImage = (Button) findViewById(R.id.buttonSelec);
         buttonImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent i = new Intent(
-                //Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                //startActivityForResult(i, RESULT_LOAD_IMAGE);
+                // comprobar version actual de android que estamos corriendo
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-
                     // Comprobar si ha aceptado, no ha aceptado, o nunca se le ha preguntado
                     if (CheckPermission(Manifest.permission.READ_EXTERNAL_STORAGE)) {
+
                         // Ha aceptado
-                        Intent i = new Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                        if (ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
-                            return;
+                        Intent i = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+
                         startActivityForResult(i, RESULT_LOAD_IMAGE);
+
                     } else {
                         // Ha denegado o es la primera vez que se le pregunta
                         if (!shouldShowRequestPermissionRationale(Manifest.permission.READ_EXTERNAL_STORAGE)) {
@@ -81,18 +65,8 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(i);
                         }
                     }
-                } else {
-                    //OlderVersions(phoneNumber);
-            }}
-            private void OlderVersions(String phoneNumber) {
-                Intent intentCall = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + phoneNumber));
-                if (ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED){
-
-
-                    //startActivity(intentCall);
-
-                } else {
-                    Toast.makeText(MainActivity.this, "You declined the access", Toast.LENGTH_SHORT).show();
+                }else{
+                    OlderVersions();
                 }
             }
         });
@@ -128,5 +102,16 @@ public class MainActivity extends AppCompatActivity {
     private boolean CheckPermission(String permission) {
         int result = this.checkCallingOrSelfPermission(permission);
         return result == PackageManager.PERMISSION_GRANTED;
+    }
+    private void OlderVersions() {
+
+        if (ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED){
+            Intent i = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+
+            startActivity(i);
+
+        } else {
+            Toast.makeText(MainActivity.this, "You declined the access", Toast.LENGTH_SHORT).show();
+        }
     }
 }
