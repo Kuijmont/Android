@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Especies subacuáticas</string>
+    <string name="title_pez">Peces del Parque</string>
+    <string-array name="array_name">
+        <item>Peces</item>
+        <item>Algas</item>
+    </string-array>
+</resources>
