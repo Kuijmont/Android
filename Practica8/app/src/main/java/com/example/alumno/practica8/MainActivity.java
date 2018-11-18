@@ -1,9 +1,16 @@
 package com.example.alumno.practica8;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
@@ -26,33 +33,84 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        rellenarPeces();
         adaptador = new Adaptador(this,peces);
         final ListView lista = (ListView) findViewById(R.id.lista);
+        final Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        final EditText title = (EditText) findViewById(R.id.editText);
+        //Se rellenan los dos ArrayList que van a ser utilizados para manipular el contenido del ListView.
+        rellenarPeces();
+        rellenarAlgInver();
+        //Se establece el adaptador por defecto del ListView.
+        adaptador = new Adaptador(this,peces);
         lista.setAdapter(adaptador);
-    }
+        //Si se cambia la opción del Spinner:
+        //Si se cambia la opción del Spinner:
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                //Si la opcion es "Peces" se borrará el contenido del ListView y se establecerá como su nuevo contenido el correspondiente al ArrayList "peces".
+                if(position==0){
+                    title.setText("Peces del Parque");
+                    adaptador = new Adaptador(a,peces);
+                    lista.setAdapter(adaptador);
+                }
+                //Si la opcion es "Algas e invertebrados" se borrará el contenido del ListView y se establecerá como su nuevo contenido el correspondiente al ArrayList "alginvert".
+                else{
+                    title.setText("Algas e invertebrados del Parque");
+                    adaptador = new Adaptador(a,algas);
+                    lista.setAdapter(adaptador);
+                }
+            }
+            @Override
+            //Si no se selecciona nada en el Spinner, no se hará nada.
+            public void onNothingSelected(AdapterView<?> parentView) {
+            }
+        });
+        //Si se clica en algún objeto del ListView:
+        lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                //Se llamará a una segunda actividad, a la que se enviará la referencia numérica de la imagen del item del ListView.
+                Intent intent = new Intent(MainActivity.this,Foto.class);
+                intent.putExtra("ref",adaptador.getItem(i).getRef());
+                startActivityForResult(intent,SECONDARY_ACTIVITY_TAG);
 
+            }
+        });
+    }
+    //Método que rellena el ArrayList de peces con los valores del txt correspondiente.
     private void rellenarPeces() {
         String linea="ERROR.";
-        try
-        {
-            InputStream fraw =
-                    getResources().openRawResource(R.raw.peces);
-
-            BufferedReader brin =
-                    new BufferedReader(new InputStreamReader(fraw));
-            linea=brin.readLine();
+        try{
+            InputStream is = getResources().openRawResource(R.raw.peces);
+            BufferedReader bfr =  new BufferedReader(new InputStreamReader(is));
+            linea=bfr.readLine();
             while (linea!=null){
                 String [] splitter= linea.split(",");
                 peces.add(new FaunaMarina(asignarImagen(splitter[0]),splitter[1],splitter[2],splitter[3],splitter[4]));
-
-                linea = brin.readLine();
+                linea = bfr.readLine();
             }
-            brin.close();
-            fraw.close();
+            bfr.close();
+            is.close();
+        } catch (Exception ex) {
+            Toast.makeText(this, linea, Toast.LENGTH_SHORT).show();
         }
-        catch (Exception ex)
-        {
+    }
+    //Método que rellena el ArrayList de peces con los valores del txt correspondiente.
+    private void rellenarAlgInver() {
+        String linea="ERROR.";
+        try{
+            InputStream is = getResources().openRawResource(R.raw.algaseinvertebrados);
+            BufferedReader bfr =  new BufferedReader(new InputStreamReader(is));
+            linea=bfr.readLine();
+            while (linea!=null){
+                String [] splitter= linea.split(",");
+                algas.add(new FaunaMarina(asignarImagen(splitter[0]),splitter[1],splitter[3],splitter[4],splitter[5]));
+                linea = bfr.readLine();
+            }
+            bfr.close();
+            is.close();
+        } catch (Exception ex) {
             Toast.makeText(this, linea, Toast.LENGTH_SHORT).show();
         }
     }
@@ -161,5 +219,16 @@ public class MainActivity extends AppCompatActivity {
         }
         return 0;
     }
-
+    //Método que gestiona el flujo entre actividades de la app.
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        String respuesta="";
+        //Si se cancela la operación de la actividad secundaria se mostrará un mensaje informativo de tipo Toast.
+        if (resultCode == RESULT_CANCELED){
+            respuesta = "Has salido de la vista de la foto en pantalla completa.";
+            Toast toast1 = Toast.makeText(getApplicationContext(),respuesta, Toast.LENGTH_SHORT);
+            toast1.show();
+        }
+    }
+    private static final int SECONDARY_ACTIVITY_TAG = 1;
 }
