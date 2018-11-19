@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher_round);
         adaptador = new Adaptador(this,peces);
         final ListView lista = (ListView) findViewById(R.id.lista);
         final Spinner spinner = (Spinner) findViewById(R.id.spinner);
@@ -73,6 +75,8 @@ public class MainActivity extends AppCompatActivity {
                 //Se llamará a una segunda actividad, a la que se enviará la referencia numérica de la imagen del item del ListView.
                 Intent intent = new Intent(MainActivity.this,Foto.class);
                 intent.putExtra("ref",adaptador.getItem(i).getRef());
+                intent.putExtra("titulo",adaptador.getItem(i).getNombre());
+                intent.putExtra("latin",adaptador.getItem(i).getLatin());
                 startActivityForResult(intent,SECONDARY_ACTIVITY_TAG);
 
             }
@@ -87,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
             linea=bfr.readLine();
             while (linea!=null){
                 String [] splitter= linea.split(",");
-                peces.add(new FaunaMarina(asignarImagen(splitter[0]),splitter[1],splitter[2],splitter[3],splitter[4]));
+                peces.add(new FaunaMarina(asignarImagen(splitter[0]),splitter[1],splitter[2],splitter[3]+" cm",splitter[4]));
                 linea = bfr.readLine();
             }
             bfr.close();
@@ -105,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
             linea=bfr.readLine();
             while (linea!=null){
                 String [] splitter= linea.split(",");
-                algas.add(new FaunaMarina(asignarImagen(splitter[0]),splitter[1],splitter[3],splitter[4],splitter[5]));
+                algas.add(new FaunaMarina(asignarImagen(splitter[0]),splitter[1],splitter[3],splitter[4]+" cm",splitter[5]));
                 linea = bfr.readLine();
             }
             bfr.close();
@@ -214,7 +218,7 @@ public class MainActivity extends AppCompatActivity {
             case "vaquilla":
                 return R.drawable.vaquilla;
             default:
-                Toast.makeText(this, "Sin resultados.", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, "Sin resultados.", Toast.LENGTH_SHORT).show();
                 break;
         }
         return 0;

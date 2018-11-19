@@ -17,9 +17,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Foto"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-            android:parentActivityName=".MainActivity">
+            android:name=".Foto">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.alumno.practica8.Foto" />
