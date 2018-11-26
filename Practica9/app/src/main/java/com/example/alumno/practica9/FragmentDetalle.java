@@ -17,9 +17,9 @@ public class FragmentDetalle extends Fragment{
         return inflater.inflate(R.layout.fragment_detalle, container, false);
     }
 
-    public void mostrarDetalle(int num) {
+    public void mostrarDetalle(String imagen) {
         ImageView im = (ImageView)getView().findViewById(R.id.imageView2);
-        im.setImageResource(num);
+        im.setImageResource(getResources().getIdentifier(imagen,"drawable",this.getActivity().getPackageName()));
     }
 
 }

@@ -1,6 +1,7 @@
 package com.example.alumno.practica9;
 
 import android.app.Activity;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,11 +14,11 @@ import java.util.ArrayList;
 public class Adaptador extends ArrayAdapter<FaunaMarina> {
     Activity contexto;
 
-    Adaptador(Activity contexto, ArrayList<FaunaMarina> datos) {
+    Adaptador(Fragment contexto, ArrayList<FaunaMarina> datos) {
         // Llamamos al constructor de la clase superior
         //se le pasa el xml que genera la fila y el array de objetos
-        super(contexto, R.layout.layout_lista, datos);
-        this.contexto = contexto;
+        super(contexto.getActivity(), R.layout.layout_lista, datos);
+        this.contexto = contexto.getActivity();
     }
     //Esto es lo que se invoca cada vez que haya que mostrar un elemento de la lista
 

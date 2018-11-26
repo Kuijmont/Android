@@ -9,13 +9,6 @@
     tools:context=".MainActivity"
     android:icon="@mipmap/ic_launcher">
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="383dp"
-        android:layout_height="49dp"
-        android:background="@android:color/holo_blue_light"
-        android:entries="@array/array_name" />
-
     <EditText
         android:id="@+id/editText"
         android:layout_width="200dp"
@@ -29,6 +22,13 @@
         android:textColor="@android:color/holo_blue_light"
         android:textSize="24sp"
         android:textStyle="bold" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="383dp"
+        android:layout_height="49dp"
+        android:background="@android:color/holo_blue_light"
+        android:entries="@array/array_name" />
 
     <ListView
         android:id="@+id/lista"

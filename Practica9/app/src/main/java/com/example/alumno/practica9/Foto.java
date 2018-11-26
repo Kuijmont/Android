@@ -9,7 +9,8 @@ import android.widget.ImageView;
  */
 
 public class Foto extends AppCompatActivity {
-
+    public static final String EXTRA_TEXTO =
+            "imagen";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,7 +23,7 @@ public class Foto extends AppCompatActivity {
         FragmentDetalle detalle =
                 (FragmentDetalle)getSupportFragmentManager()
                         .findFragmentById(R.id.FrgDetalle);
-        detalle.mostrarDetalle(num);
+        detalle.mostrarDetalle(getIntent().getStringExtra(EXTRA_TEXTO));
         String titulo = getIntent().getStringExtra("titulo")+" ("+ (getIntent().getStringExtra("latin"))+")";
         setTitle(titulo);
     }
