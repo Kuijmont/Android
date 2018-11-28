@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Gestor de Notas</string>
+    <string-array name="array_tipo">
+        <item>Reunion</item>
+        <item>Aviso</item>
+        <item>Varios</item>
+    </string-array>
+</resources>
