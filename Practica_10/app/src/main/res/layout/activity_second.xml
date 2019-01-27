@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tipo"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="30"
+        android:background="#5c5a5a"
+        android:text="Tipo"
+        android:textColor="@android:color/black"
+        android:textSize="30sp" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="30"
+        android:background="#5c5a5a"
+        android:entries="@array/array_tipo"
+        android:textColor="@android:color/black" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="5"
+        android:background="#5c5a5a"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Titulo"
+        android:textColor="@android:color/black"
+        android:textSize="30sp" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_weight="5"
+        android:background="?android:attr/listDivider" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_weight="30"
+        android:background="#5c5a5a"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Descripción"
+        android:textColor="@android:color/black"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+        android:layout_weight="30"
+        android:text="Button" />
+
+</LinearLayout>

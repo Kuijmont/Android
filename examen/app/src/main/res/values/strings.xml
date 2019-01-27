@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Mi Biblioteca 2018</string>
+    <string name="labelencabezado">Libros de la biblioteca</string>
+    <string name="spinner_header">Filtrar por autor...</string>
+</resources>
